@@ -1,4 +1,5 @@
 use crate::moves::PieceMove;
+use num_enum::TryFromPrimitive;
 use std::fmt::Debug;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
@@ -20,7 +21,8 @@ impl Color {
     }
 }
 
-#[derive(Clone, Copy, EnumIter, Debug)]
+#[derive(Clone, Copy, EnumIter, Debug, PartialEq, Eq, TryFromPrimitive)]
+#[repr(u8)]
 pub enum Rank {
     One = 0,
     Two = 1,
@@ -32,7 +34,8 @@ pub enum Rank {
     Eight = 7,
 }
 
-#[derive(Clone, Copy, EnumIter, Debug)]
+#[derive(Clone, Copy, EnumIter, Debug, PartialEq, Eq, TryFromPrimitive)]
+#[repr(u8)]
 pub enum File {
     A = 0,
     B = 1,
